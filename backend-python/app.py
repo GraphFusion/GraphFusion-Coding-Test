@@ -1,9 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import sqlite3
 
 app = Flask(__name__)
 CORS(app)
 
+
+conn = sqlite3.connect('graph.db')
+c = conn.cursor()
+
+# Create tables for nodes and relationships
+c.execute('''CREATE TABLE IF NOT EXISTS nodes (id TEXT, name TEXT, type TEXT)''')
+c.execute('''CREATE TABLE IF NOT EXISTS relationships (source TEXT, target TEXT, relationship TEXT)''')
 # In-memory storage for nodes and relationships
 nodes = []
 relationships = []
@@ -26,6 +34,9 @@ def add_relationship():
 @app.route('/graph', methods=['GET'])
 def get_graph():
     return jsonify({'nodes': nodes, 'relationships': relationships})
+
+conn.commit()
+conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True)
