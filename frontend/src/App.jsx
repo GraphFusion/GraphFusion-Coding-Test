@@ -174,8 +174,8 @@ const App = () => {
       <h1 className="text-blue-500 text-center text-xl mx-auto my-5">
         Welcome to GraphFusion
       </h1>
-      <div className="grid grid-cols-6">
-        <div className="sidebar col-span-1 bg-slate-700 h-[calc(100vh-70px)] px-3 text-lg gap-y-20 text-white">
+      <div className="grid grid-cols-6 max-sm:flex max-sm:flex-col">
+        <div className="sidebar col-span-1 bg-slate-700 h-[calc(100vh-70px)] px-3 text-lg gap-y-20 text-white max-sm:h-fit">
           <div className="flex cursor-pointer gap-x-3 items-center justify-start my-6">
             <PiGraphDuotone></PiGraphDuotone>
             <p>Home</p>
@@ -209,7 +209,7 @@ const App = () => {
             <p>View Nodes</p>
           </div>
         </div>
-        <div className="graphs col-span-5 p-20 flex flex-col justify-center align-items h-[calc(100vh-70px)]">
+        <div className="graphs col-span-5 p-20 flex flex-col justify-center align-items h-[calc(100vh-70px)] max-sm:h-fit">
           <GraphComponent></GraphComponent>
         </div>
       </div>
@@ -217,7 +217,7 @@ const App = () => {
       {nodeForm && (
         <form
           onSubmit={submitData}
-          className="absolute bg-card w-72 p-4 flex flex-col gap-y-5 shadow-md z-50 P-4 left-48 top-12 rounded-md"
+          className="absolute bg-card w-72 p-4 flex flex-col gap-y-5 shadow-md z-50 P-4 left-48 top-12 rounded-md max-sm:left-36 max-sm:top-32 max-sm:scale-75"
         >
           <h1 className="text-center text-lg font-medium">Create Node</h1>
           <div>
@@ -257,9 +257,9 @@ const App = () => {
       {relationshipForm && (
         <form
           onSubmit={submitRelationship}
-          className="absolute bg-card w-72 p-4 flex flex-col gap-y-5 shadow-md z-50 P-4 left-48 top-12 rounded-md"
+          className="absolute bg-card w-72 p-4 flex flex-col gap-y-5 shadow-md z-50 P-4 left-48 max-sm:left-36 max-sm:top-32 max-sm:scale-75 top-12 rounded-md"
         >
-          <h1 className="text-center text-lg font-medium">Create Node</h1>
+          <h1 className="text-center text-lg font-medium">Create Relationships</h1>
           <div>
             <label htmlFor="name">
               From Node <span className="font-thin">(Node A)</span>
@@ -303,11 +303,11 @@ const App = () => {
       )}
 
       {viewNodes && (
-        <div className="bg-card absolute left-56 top-20 p-3 w-72 h-96 overflow-scroll overflow-x-clip flex flex-col text-black rounded-md shadow-md justify-start items-start">
+        <div className="bg-card absolute left-56 top-20 p-3 w-72 h-96 overflow-scroll overflow-x-clip flex flex-col text-black rounded-md shadow-md justify-start items-start max-sm:left-36 max-sm:top-32 max-sm:scale-75">
           {nodes.map((eachNode) => (
             <div className="my-2" key={eachNode._id}>
-              <div className="text-lg font-semibold">{eachNode.name}</div>
-              <div className="text-slate-700 text-base font-light">
+              <div className="text-lg font-semibold max-sm:text-sm">{eachNode.name}</div>
+              <div className="text-slate-700 text-base font-light max-sm:text-sm">
                 {eachNode.type}
               </div>
             </div>
@@ -316,8 +316,8 @@ const App = () => {
       )}
 
       {viewRelations && (
-        <div className="bg-card absolute left-56 top-20 p-3 w-[500px] h-96 overflow-scroll overflow-x-clip flex flex-col text-black rounded-md shadow-md justify-start items-start">
-          <div className="flex items-center justify-evenly border-b pb-1 w-full">
+        <div className="bg-card absolute left-56 top-20 p-3 w-[500px] max-sm:left-20 max-sm:top-32 max-sm:scale-75 h-96 overflow-scroll overflow-x-clip flex flex-col text-black rounded-md shadow-md justify-start items-start">
+          <div className="flex items-center justify-evenly border-b pb-1 w-full max-sm:text-sm">
             <div>From</div>
             <div>Relationship</div>
             <div>To</div>
@@ -327,13 +327,13 @@ const App = () => {
               className="my-2 flex justify-between w-full items-center"
               key={eachRelation._id}
             >
-              <div className="text-lg font-semibold">
+              <div className="text-lg font-semibold max-sm:text-sm">
                 {eachRelation.from.name}({eachRelation.from.type})
               </div>
-              <div className="text-lg font-semibold">
+              <div className="text-lg font-semibold max-sm:text-sm">
                 {eachRelation.relationship}
               </div>
-              <div className="text-lg font-semibold">
+              <div className="text-lg font-semibold max-sm:text-sm">
                 {eachRelation.to.name}({eachRelation.to.type})
               </div>
             </div>

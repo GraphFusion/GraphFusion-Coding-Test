@@ -64,10 +64,10 @@ const GraphComponent = () => {
   }, []);
 
   return (
-    <div className="relative h-96 w-full z-10">
+    <div className="relative h-96 w-full z-[1000]">
       {" "}
       {/* Relative positioning with z-index */}
-      <ReactFlow elements={elements} className="react-flow">
+      <ReactFlow elements={elements} className="react-flow flex gap-x-2">
         <MiniMap />
         <Controls />
         <Background color="#aaa" gap={16} />
