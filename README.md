@@ -57,6 +57,6 @@ Here’s an example of how you might structure node and relationship data:
 You can format the data however you prefer in your implementation.
 
 ## Submission Deadline
-Please submit your pull request by **September 25 2024**.
+Please submit your pull request by **November 1 2024**.
 
 Good luck! If you have any questions, feel free to reach out.
