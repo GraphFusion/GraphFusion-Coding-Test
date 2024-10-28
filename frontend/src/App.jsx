@@ -78,7 +78,7 @@ const App = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        toast.error(data.message | "Failed to create node");
+        toast.error(data.message || "Failed to create node");
         return;
       } else {
         toast.success("Node created successfully");
@@ -129,44 +129,51 @@ const App = () => {
   };
 
   useEffect(() => {
-    const fetchNodes = async () => {
-      const response = await fetch(`${baseUrl}/nodes`, {
-        method: "GET",
-      });
+  const fetchNodes = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/nodes`);
       const data = await response.json();
-      console.log(data);
 
-      if (!response.ok) {
-        toast.error(data.message | "Error fetching nodes");
+      if (response.ok) {
+        setNodes(data);
+        const nodeOptions = data.map((node) => ({
+          value: node._id,
+          label: node.name,
+        }));
+        setOptions(nodeOptions);
+      } else {
+        toast.error(data.message || "Error fetching nodes");
         return;
       }
+    } catch (error) {
+      toast.error("Network error: Failed to fetch nodes.");
+      return;
+    }
+  };
 
-      setNodes(data);
-      const nodeOptions = data.map((eachData) => ({
-        value: eachData._id,
-        label: eachData.name,
-      }));
-      setOptions(nodeOptions);
-    };
-
-    const fetchRelations = async () => {
-      const response = await fetch(`${baseUrl}/relationship`, {
-        method: "GET",
-      });
+  const fetchRelations = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/relationship`);
       const data = await response.json();
-      console.log(data);
 
-      if (!response.ok) {
-        toast.error(data.message | "Error fetching nodes");
+      if (response.ok) {
+        setRelations(data);
+      } else {
+        toast.error(data.message || "Error fetching relationships");
         return;
       }
+    } catch (error) {
+      toast.error("Network error: Failed to fetch relationships.");
+      console.log(error.message);
+      return;
+      
+    }
+  };
 
-      setRelations(data);
-    };
+  fetchNodes();
+  fetchRelations();
+}, [baseUrl]);
 
-    fetchRelations();
-    fetchNodes();
-  }, [baseUrl]);
 
   return (
     <div className="bg-slate-200 h-screen flex flex-col relative">

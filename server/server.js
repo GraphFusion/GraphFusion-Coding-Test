@@ -11,7 +11,11 @@ dotenv.config ();
 const app = express ();
 
 // Connect to db
-const URL = process.env.DB_URI;
+// const URL = process.env.DB_URI;
+const URL = process.env.DB_URL
+  .replace ('${DB_USER}', process.env.DB_USER)
+  .replace ('${DB_PASSWORD}', process.env.DB_PASSWORD);
+
 mongoose
   .connect (URL)
   .then (() => {
@@ -45,7 +49,7 @@ app.get ('/', (req, res) => {
 });
 
 //Listen to server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4500;
 app.listen (PORT, () => {
   console.log (`Server running well on port http://localhost:${PORT}`);
 });
