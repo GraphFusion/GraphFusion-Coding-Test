@@ -53,6 +53,11 @@ const App = () => {
   const [toNode, setToNode] = useState("");
   const [relation, setRelation] = useState("");
 
+  const localUrl = import.meta.env.VITE_LOCAL_URL;
+  const apiURL = import.meta.env.VITE_API_URL;
+  const baseUrl = localUrl || apiURL;
+
+
   const submitData = async (e) => {
     e.preventDefault();
 
@@ -62,7 +67,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4500/nodes", {
+      const response = await fetch(`${baseUrl}/nodes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +106,7 @@ const App = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4500/relationship", {
+      const response = await fetch(`${baseUrl}/relationship`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -125,7 +130,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchNodes = async () => {
-      const response = await fetch("http://localhost:4500/nodes", {
+      const response = await fetch(`${baseUrl}/nodes`, {
         method: "GET",
       });
       const data = await response.json();
@@ -145,7 +150,7 @@ const App = () => {
     };
 
     const fetchRelations = async () => {
-      const response = await fetch("http://localhost:4500/relationship", {
+      const response = await fetch(`${baseUrl}/relationship`, {
         method: "GET",
       });
       const data = await response.json();
@@ -161,7 +166,7 @@ const App = () => {
 
     fetchRelations();
     fetchNodes();
-  }, []);
+  }, [baseUrl]);
 
   return (
     <div className="bg-slate-200 h-screen flex flex-col relative">
