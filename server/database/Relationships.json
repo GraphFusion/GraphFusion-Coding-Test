@@ -1,0 +1,28 @@
+{"relationships":[
+  {
+    "from": "652b5c634f1d6b001c8f4591",
+    "to": "652b5c634f1d6b001c8f4592",
+    "relationship": "works_at"
+  },
+  {
+    "from": "652b5c634f1d6b001c8f4593",
+    "to": "652b5c634f1d6b001c8f4594",
+    "relationship": "attends"
+  },
+  {
+    "from": "652b5c634f1d6b001c8f4595",
+    "to": "652b5c634f1d6b001c8f4596",
+    "relationship": "partnered_with"
+  },
+  {
+    "from": "652b5c634f1d6b001c8f4597",
+    "to": "652b5c634f1d6b001c8f4598",
+    "relationship": "founded"
+  },
+  {
+    "from": "652b5c634f1d6b001c8f4596",
+    "to": "652b5c634f1d6b001c8f4597",
+    "relationship": "collaborates_with"
+  }
+]
+}

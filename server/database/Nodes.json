@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "652b5c634f1d6b001c8f4591",
+      "name": "John Doe",
+      "type": "Employee"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4592",
+      "name": "Google Inc.",
+      "type": "Company"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4593",
+      "name": "Jane Smith",
+      "type": "Consultant"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4594",
+      "name": "Harvard University",
+      "type": "Institution"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4595",
+      "name": "Michael Johnson",
+      "type": "Freelancer"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4596",
+      "name": "Amazon",
+      "type": "Company"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4597",
+      "name": "University of Nairobi",
+      "type": "Institution"
+    },
+    {
+      "id": "652b5c634f1d6b001c8f4598",
+      "name": "Emily Davis",
+      "type": "Researcher"
+    }
+  ]
+}
