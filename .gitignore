@@ -1,0 +1,5 @@
+GraphFusion-Coding-Test/server/.env
+GraphFusion-Coding-Test/server/node_modules
+GraphFusion-Coding-Test/frontend/node_modules
+
+*/node_modules/
