@@ -1,4 +1,4 @@
-# GraphFusion Full-Stack Developer Coding Test
+# GraphFusion AI Full-Stack Developer Coding Test
 
 ## Objective
 The goal of this test is to assess your ability to develop a minimal dynamic knowledge graph application where users can input nodes and relationships, and visualize the graph in real-time.
@@ -57,6 +57,6 @@ Here’s an example of how you might structure node and relationship data:
 You can format the data however you prefer in your implementation.
 
 ## Submission Deadline
-Please submit your pull request by **November 1 2024**.
+Please submit your pull request by **Jan 1 2025**.
 
 Good luck! If you have any questions, feel free to reach out.
